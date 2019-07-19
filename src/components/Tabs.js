@@ -3,6 +3,7 @@ import { Tab, Tabs } from 'react-bootstrap';
 import Search from '../views/Search';
 import Singup from '../views/Singup';
 import image from '../images/cover_bg_3.jpg';
+import payload from '../utils/payload';
 
 
 function TabsHome() {
@@ -22,10 +23,13 @@ function TabsHome() {
                                             </Tab>
                                             <Tab eventKey="Reservar" title="Reservar">
 
-                                            </Tab>
+                                            </Tab>{
+                                            payload().isAuthenticated?(
+                                               <></>
+                                            ) :
                                             <Tab eventKey="Registrarse" title="Registrarse">
-                                              <Singup/>  
-                                            </Tab>
+                                            <Singup/>  
+                                          </Tab>}
                                         </Tabs>
                                     </>
                                 </div>

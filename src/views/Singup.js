@@ -8,7 +8,7 @@ const ADD_USUARIO = gql`
     mutation CreateUsuario($data:createUsuarioInput!){
         createUsuario(data:$data){
             _id,
-            first_name
+            nombre
         }
     }
 `
@@ -16,11 +16,12 @@ const ADD_USUARIO = gql`
 function Singup({history}) {
     const [SendSingup,{error}] = useMutation(ADD_USUARIO)
     const catchSubmit = async (fields)=>{
-        if(fields.cPassword===fields.cConfirmPassword){
-            delete fields.cConfirmPassword;
+        if(fields.password===fields.confirmpassword){
+            fields.telefono= parseInt(fields.telefono);
+            delete fields.confirmpassword;
              await SendSingup({variables:{data:{...fields}}})
-             error? alert("Hubo un errorsaso") :
-             history.push('/login');
+             error? alert("Hubo un error") :
+             alert("Usuario Guardado")
         }
         else{
             alert("Los Passwords no coiciden");
@@ -33,66 +34,73 @@ function Singup({history}) {
             <div className="row">
                 <form onSubmit={handleSubmit}>
 
-                  <Input name="cUsuario"
+                  <Input name="usuario"
 							label="Usuario"
 							type="text"
 							placeholder=""
-							value={inputs.cUsuario}
+							value={inputs.usuario}
 							onChange={handleInputChange}
 							required 
 							/>
-                    <Input name="cNombre"
+                    <Input name="nombre"
 							label="Nombre"
 							type="text"
 							placeholder
-							value={inputs.cNombre}
+							value={inputs.nombre}
                             onChange={handleInputChange}
                             required 
 							/>
-                    <Input name="cPrimerApellido"
+                    <Input name="primerapellido"
 							label="Apellido paterno"
 							type="text"
 							placeholder=""
-							value={inputs.cPrimerApellido}
+							value={inputs.primerapellido}
                             onChange ={handleInputChange}
                             required
 							/>
-                    <Input name="cSegundoApellido"
+                    <Input name="segundoapellido"
 							label="Apellido Materno"
 							type="text"
 							placeholder=""
-							value={inputs.cSegundoApellido}
+							value={inputs.segundoapellido}
 							onChange ={handleInputChange}
 							/>
-                    <Input name="cCorreo"
+                    <Input name="correo"
 							label="Correo"
 							type="email"
 							placeholder=""
-							value={inputs.cCorreo}
+							value={inputs.correo}
 							onChange ={handleInputChange}
 							/>
-                    <Input name="iTelefono"
+                    <Input name="telefono"
 							label="Telefono"
 							type="tel"
 							placeholder=""
-							value={inputs.iTelefono}
+							value={inputs.telefono}
 							onChange ={handleInputChange}
 							/>
-                <Input name="cPassword"
+                <Input name="password"
 							label="Contraseña"
 							type="password"
 							placeholder=""
-							value={inputs.cPassword}
+							value={inputs.password}
                             onChange ={handleInputChange}
                             required
 							/>
-                <Input name="cConfirmPassword"
+                <Input name="confirmpassword"
 							label="Confirmar Contraseña"
 							type="password"
 							placeholder=""
-							value={inputs.cConfirmPassword}
+							value={inputs.confirmpassword}
 							onChange ={handleInputChange}
-							/>                  
+							/>
+                <Input name="sexo"
+							label="Género"
+							type="text"
+							placeholder="Hombre/Mujer/Otro"
+							value={inputs.sexo}
+							onChange ={handleInputChange}
+							/>             
                     <div className="col-xs-12">
                         <input type="submit" className="btn btn-primary btn-block" value="Registrarse" />
                     </div>

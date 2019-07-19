@@ -4,7 +4,7 @@ import {createUploadLink} from 'apollo-upload-client';
 import {setContext} from 'apollo-link-context';
 import{InMemoryCache} from 'apollo-cache-inmemory';
 
-const API_URL= 'http://localhost:4000/';
+const API_URL= 'https://app-back-airbot.herokuapp.com/';
 
 const httpLink = createUploadLink({
     uri:API_URL
