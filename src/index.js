@@ -6,9 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.scss';
 import Routes from './Routes';
 import client from './graphql';
-
-
-
+//import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <ApolloProvider client={client}>
@@ -22,3 +20,4 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
+//serviceWorker.unregister();
