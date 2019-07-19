@@ -23,7 +23,7 @@ function Login({history}) {
       if (mutation){
           const {login} =mutation.data;
           localStorage.setItem('blogToken',login.token);
-          history.push('/');
+          history.push('/alojamientos');
       }
     }
     const {inputs,handleInputChange,handleSubmit}= useForm(submitLogin);
