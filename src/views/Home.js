@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Form from '../components/Form';
 import Footer from '../components/Footer';
 import Content from '../components/Content';
+import Alojamientos from '../components/Alojamientos/PageAlojamientos';
 
 function Home() {
     return (
@@ -12,6 +13,7 @@ function Home() {
                     <Header />
                     <Form />
                     <Content />
+                    <Alojamientos />
                     <Footer />
                 </div>
             </div>
