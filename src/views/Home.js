@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
 import Header from '../components/Header';
-import Form from '../components/Form';
+import TabsHome from '../components/Tabs';
 import Footer from '../components/Footer';
 import Content from '../components/Content';
-import Alojamientos from '../components/Alojamientos/PageAlojamientos';
 
 function Home() {
     return (
@@ -11,9 +10,9 @@ function Home() {
             <div id="fh5co-wrapper">
                 <div id="fh5co-page">
                     <Header />
-                    <Form />
+                    <TabsHome />
+                    {/* <Form /> */}
                     <Content />
-                    <Alojamientos />
                     <Footer />
                 </div>
             </div>
