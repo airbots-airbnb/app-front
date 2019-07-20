@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../images/logo-airbots.png';
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
 
 function Header() {
 	return (
@@ -9,7 +10,9 @@ function Header() {
 			<div className="container">
 				<div className="nav-header">
 					<a href="#" className="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-					<h1 id="fh5co-logo"><a href="index.html"><i className="icon-airplane"></i>AIRBOT</a></h1>
+					<h1 id="fh5co-logo">
+                    <Link to="/">Home
+                         <i className="icon-airplane"></i>AIRBOT</Link> </h1>
 					<Navbar />
 				</div>
 			</div>
